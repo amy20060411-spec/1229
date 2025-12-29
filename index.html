@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 未來科技論壇</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1: #E0E0E0;
+      --bg-2: #404040;
+      --muted: #6c757d;
+      --card-bg: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.06);
+    }
+    html,body{height:100%}
+    body{
+      padding-top:72px;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#e9eef8;
+      background:linear-gradient(180deg,#07102a 0%, #07182f 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Navbar */
+    .navbar{background:transparent}
+    .navbar .navbar-brand{font-weight:700; color:#fff}
+    .nav-link{color:rgba(255,255,255,0.85) !important}
+    .nav-link:hover{color:#ffd;}
+
+    /* Hero */
+    .hero{
+      min-height:86vh;
+      display:flex;
+      align-items:center;
+      background:linear-gradient(135deg,var(--bg-2),var(--bg-1));
+      padding:80px 0;
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .hero .badge{
+      background:rgba(255,255,255,0.08);
+      color:#fff;
+      border-radius:999px;
+      padding:.35rem .7rem;
+      font-weight:600;
+      display:inline-block;
+      margin-bottom:1rem;
+    }
+    .hero h1{font-size:2.6rem; line-height:1.05; font-weight:800; color:#fff}
+    .hero p.lead{color:rgba(255,255,255,0.9); font-size:1.05rem}
+    .cta-primary{background:#fff; color:var(--bg-2); font-weight:700; border:none}
+    .cta-ghost{color:#fff; border:1px solid rgba(255,255,255,0.12); background:transparent}
+
+    /* Cards & sections */
+    .section-title{
+      font-weight:800;
+      color:#fff;
+      margin-bottom:.75rem;
+    }
+    .section-sub{color:var(--muted); margin-bottom:1.6rem}
+    .card.glass{
+      background:var(--card-bg);
+      border:0;
+      backdrop-filter: blur(6px);
+      transition:transform .22s ease, box-shadow .22s ease;
+      overflow:hidden;
+    }
+    .card.glass:hover{ transform:translateY(-6px); box-shadow:0 12px 28px rgba(2,6,23,0.6) }
+
+    .agenda-card .thumb{
+      width:88px;height:88px;flex:0 0 88px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#08316a;
+      background:linear-gradient(180deg,#dff3ff,#bfe7ff);
+      box-shadow:0 6px 18px rgba(2,6,23,0.35);
+    }
+    .agenda-card .card-body{align-items:center;display:flex}
+
+    /* Speakers */
+    .speaker-img{width:120px;height:120px;object-fit:cover;border-radius:999px;border:4px solid rgba(255,255,255,0.06);background:linear-gradient(180deg,#fff,#f3f3f3)}
+    .carousel-item h5, .carousel-item p{color:#fff}
+
+    /* Info / map */
+    #info .card{
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+      color:#e9eef8;
+    }
+    iframe{border-radius:12px;border:0;min-height:260px;}
+
+    /* Contact */
+    .form-control{background:rgba(255,255,255,0.04);border:0;color:#fff}
+    .form-control::placeholder{color:rgba(255,255,255,0.5)}
+    .contact-panel{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.03)}
+
+    footer{border-top:1px solid rgba(255,255,255,0.03); background:transparent}
+
+    @media(max-width:767.98px){
+      .hero h1{font-size:1.8rem}
+      .hero{padding:48px 0}
+      .speaker-img{width:96px;height:96px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Future Tech 2026</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link px-3" href="#agenda">Agenda</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#speakers">Speakers</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#info">Info</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center gx-5">
+      <div class="col-lg-6">
+        <span class="badge">線上 + 現場 • 2026</span>
+        <h1>2026 未來科技論壇</h1>
+        <p class="lead">AI × Web × 創新科技 — 與產業領袖一同探索未來趨勢與實務</p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="#contact" class="btn cta-primary btn-lg">立即報名</a>
+          <a href="#agenda" class="btn cta-ghost btn-lg">查看議程</a>
+        </div>
+        <div class="mt-4 text-muted small">主辦單位保留議程與講者調整權利</div>
+      </div>
+
+      <div class="col-lg-6 text-lg-end mt-4 mt-lg-0">
+        <div class="card glass p-3 d-inline-block" style="max-width:520px; width:100%">
+          <img src="assets/hero-illustration.svg" alt="Hero Illustration" class="img-fluid" style="border-radius:8px;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agenda -->
+<section id="agenda" class="py-5">
+  <div class="container">
+    <div class="row align-items-end mb-4">
+      <div class="col-md-8">
+        <h2 class="section-title">論壇議程</h2>
+        <div class="section-sub">採用實務導向短講＋圓桌討論，內容涵蓋產業應用與技術趨勢。</div>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <small class="text-muted">更新：2026-01-10</small>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card glass agenda-card h-100">
+          <div class="card-body d-flex">
+            <div class="thumb me-3">AI</div>
+            <div>
+              <h5 class="fw-bold mb-1 text-white">AI 趨勢</h5>
+              <p class="mb-1" style="color:var(--muted)">生成式 AI 與產業落地</p>
+              <small class="text-muted">10:00 — 11:00</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glass agenda-card h-100">
+          <div class="card-body d-flex">
+            <div class="thumb me-3">Web</div>
+            <div>
+              <h5 class="fw-bold mb-1 text-white">Web 技術</h5>
+              <p class="mb-1" style="color:var(--muted)">前端架構與現代開發流程</p>
+              <small class="text-muted">11:15 — 12:00</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card glass agenda-card h-100">
+          <div class="card-body d-flex">
+            <div class="thumb me-3">Biz</div>
+            <div>
+              <h5 class="fw-bold mb-1 text-white">創新實戰</h5>
+              <p class="mb-1" style="color:var(--muted)">新創產品與商業模式解析</p>
+              <small class="text-muted">13:30 — 14:30</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Speakers -->
+<section id="speakers" class="py-5 bg-dark" style="border-top:1px solid rgba(255,255,255,0.02);">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <h2 class="section-title">講者陣容</h2>
+        <p class="section-sub">邀請產業與學界代表分享實務與研究成果。</p>
+
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <strong>Dr. Alan Lin</strong>
+            <div class="text-muted small">AI 研究專家 — 生成式模型與產業應用</div>
+          </li>
+          <li class="mb-3">
+            <strong>Jane Chen</strong>
+            <div class="text-muted small">前端架構工程師 — 大型專案實務</div>
+          </li>
+          <li class="mb-3">
+            <strong>Mark Wu</strong>
+            <div class="text-muted small">科技創業家 — 從產品到市場</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <div id="speakerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active py-4">
+              <img src="assets/speaker1.jpg" class="speaker-img mb-3" alt="Dr. Alan Lin">
+              <h5 class="fw-bold mb-1">Dr. Alan Lin</h5>
+              <p class="mb-0 text-muted">生成式模型與產業應用</p>
+            </div>
+            <div class="carousel-item py-4">
+              <img src="assets/speaker2.jpg" class="speaker-img mb-3" alt="Jane Chen">
+              <h5 class="fw-bold mb-1">Jane Chen</h5>
+              <p class="mb-0 text-muted">前端架構與大型專案</p>
+            </div>
+            <div class="carousel-item py-4">
+              <img src="assets/speaker3.jpg" class="speaker-img mb-3" alt="Mark Wu">
+              <h5 class="fw-bold mb-1">Mark Wu</h5>
+              <p class="mb-0 text-muted">創業實戰與市場策略</p>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#speakerCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#speakerCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info -->
+<section id="info" class="py-5">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">活動資訊</h2>
+        <p class="section-sub">詳盡交通資訊、地理位置與住宿優惠。</p>
+
+        <div class="card p-3 mb-3">
+          <div class="fw-bold">📍 地點</div>
+          <div class="text-muted">高雄國際會議中心</div>
+        </div>
+
+        <div class="card p-3 mb-3">
+          <div class="fw-bold">🚇 交通</div>
+          <div class="text-muted">捷運紅線／高鐵：高雄左營站，轉乘計程車或接駁約 15–25 分鐘</div>
+        </div>
+
+        <div class="card p-3">
+          <div class="fw-bold">🏨 住宿</div>
+          <div class="text-muted">合作飯店享 85 折優惠（於報名頁面領取折扣代碼）</div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card p-0 contact-panel">
+          <iframe
+            src="https://www.google.com/maps?q=Kaohsiung%20International%20Convention%20Center&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Kaohsiung International Convention Center"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-dark" style="border-top:1px solid rgba(255,255,255,0.02);">
+  <div class="container">
+    <h2 class="section-title text-white text-center mb-4">聯絡我們</h2>
+    <p class="section-sub text-center">有任何問題或合作意向，請透過表單與我們聯繫。</p>
+
+    <div class="row justify-content-center gy-4">
+      <div class="col-lg-6">
+        <form id="contactForm" class="p-4 contact-panel">
+          <div class="mb-3">
+            <label for="name" class="form-label text-white small">姓名</label>
+            <input type="text" class="form-control" id="name" placeholder="輸入姓名" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-white small">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label text-white small">訊息</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="您的訊息..."></textarea>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">送出</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card p-3">
+          <h6 class="mb-2">聯絡方式</h6>
+          <p class="mb-1 text-muted">Email: info@futuretech.tw</p>
+          <p class="mb-1 text-muted">電話: (07) 1234-5678</p>
+          <p class="mb-0 text-muted">辦公時間：週一至週五 09:00 - 18:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 text-center">
+  <div class="container">
+    <small class="text-muted">© 2026 Future Tech Forum</small>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // contact 表單基礎行為
+  document.getElementById('contactForm')?.addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('感謝您的聯絡，我們會儘快回覆。');
+    this.reset();
+  });
+</script>
+</body>
+</html>
